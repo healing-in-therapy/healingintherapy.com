@@ -1,38 +1,43 @@
-import { graphql, StaticQuery } from 'gatsby';
-import { node } from 'prop-types';
+import { graphql, useStaticQuery } from 'gatsby';
+import { node, string } from 'prop-types';
 import React from 'react';
+
+import { SEO } from 'components';
 
 import Footer from './footer';
 import Header from './header';
 
 const propTypes = {
   children: node.isRequired,
+  title: string.isRequired,
 };
 
 function Layout(props) {
-  const { children } = props;
+  const {
+    children,
+    title,
+  } = props;
+
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `);
 
   return (
-    <StaticQuery
-      query={graphql`
-        query SiteTitleQuery {
-          site {
-            siteMetadata {
-              title
-            }
-          }
-        }
-      `}
-      render={(data) => (
-        <div>
-          <Header siteTitle={data.site.siteMetadata.title} />
+    <div>
+      <SEO title={title} />
 
-          <main>{children}</main>
+      <Header siteTitle={data.site.siteMetadata.title} />
 
-          <Footer />
-        </div>
-      )}
-    />
+      <main>{children}</main>
+
+      <Footer />
+    </div>
   );
 }
 
