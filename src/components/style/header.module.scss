@@ -1,0 +1,43 @@
+// @name Header
+
+.header
+{
+  margin-bottom: 32px;
+}
+
+// @name Nav List
+
+.navList
+{
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 16px;
+}
+
+// @name Nav List Item
+
+.navListItem
+{
+  padding: 0 8px;
+
+  &:first-child
+  {
+    flex: 1;
+    padding-left: 0;
+  }
+
+  &:last-child
+  {
+    padding-right: 0;
+  }
+}
+
+// @name Nav List Link
+
+.navListLink
+{
+  color: #222;
+  text-decoration: none;
+  font-size: 20px;
+}

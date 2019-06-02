@@ -1,48 +1,81 @@
-import { Link } from 'gatsby';
+import { Link, useStaticQuery } from 'gatsby';
 import React from 'react';
 
+const items = [{
+  name: 'Individuals',
+  to: '/individuals',
+}, {
+  name: 'Couples',
+  to: '/couples',
+}, {
+  name: 'Groups',
+  to: '/groups',
+}, {
+  name: 'Rehabilitation',
+  to: '/rehabilitation',
+}, {
+  name: 'About',
+  to: '/about',
+}, {
+  name: 'Contact',
+  to: '/contact',
+}];
+
 function Footer() {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          author
+          social {
+            id
+            name
+            url
+          }
+        }
+      }
+    }
+  `);
+
+  const {
+    author,
+    social
+  } = data.site.siteMetadata;
+
   return (
     <footer>
       <div>
         <ul>
-          <li>
-            <Link to="/individuals">Individuals</Link>
-          </li>
-          <li>
-            <Link to="/couples">Couples</Link>
-          </li>
-          <li>
-            <Link to="/groups">Groups</Link>
-          </li>
-          <li>
-            <Link to="/rehabilitation">Rehabilitation</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
+          {items.map(({ name, to }) => (
+            <li key={name}>
+              <Link to={to}>{name}</Link>
+            </li>
+          ))}
         </ul>
       </div>
 
       <div>
         <h3>Follow</h3>
 
-        <ul>
-          <li>
-            <a href="https://www.facebook.com/KaylaMachLMFT" rel="noopener noreferrer" target="_blank">Facebook</a>
-          </li>
+        {(() => {
+          if (social.length === 0) {
+            return null;
+          }
 
-          <li>
-            <a href="https://www.linkedin.com/in/kaylamach" rel="noopener noreferrer" target="_blank">LinkedIn</a>
-          </li>
-        </ul>
+          return (
+            <ul>
+              {social.map(({ id, name, url }) => (
+                <li key={id}>
+                  <a href={url} rel="noopener noreferrer" target="_blank">{name}</a>
+                </li>
+              ))}
+            </ul>
+          );
+        })()}
       </div>
 
       <div>
-        © {new Date().getFullYear()} Kayla Mach
+        &copy; {new Date().getFullYear()} {author}
       </div>
     </footer>
   );

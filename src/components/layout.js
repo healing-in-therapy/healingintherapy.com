@@ -1,3 +1,4 @@
+import 'normalize.css';
 import { graphql, useStaticQuery } from 'gatsby';
 import { node, string } from 'prop-types';
 import React from 'react';
@@ -6,6 +7,7 @@ import { SEO } from 'components';
 
 import Footer from './footer';
 import Header from './header';
+import styles from './style/layout.module.scss';
 
 const propTypes = {
   children: node.isRequired,
@@ -19,7 +21,7 @@ function Layout(props) {
   } = props;
 
   const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
+    query {
       site {
         siteMetadata {
           title
@@ -34,7 +36,7 @@ function Layout(props) {
 
       <Header siteTitle={data.site.siteMetadata.title} />
 
-      <main>{children}</main>
+      <main className={styles.main}>{children}</main>
 
       <Footer />
     </div>

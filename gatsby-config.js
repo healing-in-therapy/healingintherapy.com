@@ -1,8 +1,18 @@
 module.exports = {
   siteMetadata: {
-    author: '@chemoish',
-    description: 'Kayla (MFC93339) is a Licensed Marriage and Family Therapist seving Orange County since 2010. Kayla is a graduate of Antioch University with a Master’s Degree in Clinical Psychology.',
+    author: 'Kayla Mach',
+    description: 'Kayla Mach (MFC93339) is a Licensed Marriage and Family Therapist seving Orange County since 2010. Kayla is a graduate of Antioch University with a Master’s Degree in Clinical Psychology.',
     title: 'Healing in Therapy',
+
+    social: [{
+      id: 'facebook',
+      name: 'Facebook',
+      url: 'https://www.facebook.com/KaylaMachLMFT',
+    }, {
+      id: 'linkedin',
+      name: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/kaylamach',
+    }],
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -15,6 +25,7 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-sass',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {

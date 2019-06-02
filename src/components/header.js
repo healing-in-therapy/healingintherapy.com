@@ -2,6 +2,8 @@ import { Link } from 'gatsby';
 import { string } from 'prop-types';
 import React from 'react';
 
+import styles from './style/header.module.scss';
+
 const defaultProps = {
   siteTitle: '',
 };
@@ -13,31 +15,38 @@ const propTypes = {
 function Header(props) {
   const { siteTitle } = props;
 
+  const items = [{
+    name: siteTitle,
+    to: '/',
+  }, {
+    name: 'Individuals',
+    to: '/individuals',
+  }, {
+    name: 'Couples',
+    to: '/couples',
+  }, {
+    name: 'Groups',
+    to: '/groups',
+  }, {
+    name: 'Rehabilitation',
+    to: '/rehabilitation',
+  }, {
+    name: 'About',
+    to: '/about',
+  }, {
+    name: 'Contact',
+    to: '/contact',
+  }];
+
   return (
-    <header>
+    <header className={styles.header}>
       <nav>
-        <ul>
-          <li>
-            <Link to="/">{siteTitle}</Link>
-          </li>
-          <li>
-            <Link to="/individuals">Individuals</Link>
-          </li>
-          <li>
-            <Link to="/couples">Couples</Link>
-          </li>
-          <li>
-            <Link to="/groups">Groups</Link>
-          </li>
-          <li>
-            <Link to="/rehabilitation">Rehabilitation</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
+        <ul className={styles.navList}>
+          {items.map(({ name, to }) => (
+            <li className={styles.navListItem} key={name}>
+              <Link className={styles.navListLink} to={to}>{name}</Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>
