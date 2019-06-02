@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "healing-in-therapy",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "Website for healingintherapy.com.",
+  "version": "0.0.1",
+  "author": "Carey Hinoki <carey.hinoki@gmail.com>",
   "dependencies": {
     "gatsby": "^2.8.2",
     "gatsby-image": "^2.1.2",
@@ -35,9 +35,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/healing-in-therapy/healingintherapy.com"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/healing-in-therapy/healingintherapy.com/issues"
   }
 }
