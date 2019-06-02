@@ -2,6 +2,9 @@ import { Link, useStaticQuery } from 'gatsby';
 import React from 'react';
 
 const items = [{
+  name: 'Home',
+  to: '/',
+}, {
   name: 'Individuals',
   to: '/individuals',
 }, {

@@ -29,7 +29,7 @@ function Image(props) {
             extension
             relativePath
             childImageSharp {
-              fluid(maxWidth: 300) {
+              fluid(maxWidth: 500) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -42,7 +42,9 @@ function Image(props) {
   const image = data.images.edges.find((image) => image.node.relativePath === filename);
 
   return (
-    <Img fluid={image.node.childImageSharp.fluid} />
+    <Img
+      fluid={image.node.childImageSharp.fluid}
+    />
   );
 }
 

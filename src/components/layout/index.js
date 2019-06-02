@@ -3,10 +3,8 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { node, string } from 'prop-types';
 import React from 'react';
 
-import { SEO } from 'components';
+import { Footer, Header, SEO } from 'components';
 
-import Footer from './footer';
-import Header from './header';
 import styles from './style/layout.module.scss';
 
 const propTypes = {
