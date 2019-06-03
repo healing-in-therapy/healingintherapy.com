@@ -1,0 +1,52 @@
+@import 'ui';
+
+// @name Hero
+
+.hero
+{
+  margin-top: -60px;
+  padding-top: 56.25%;
+}
+
+// @name Hero Content Container
+
+.heroContentContainer
+{
+  background-image: linear-gradient(rgba($color1, 0.7), rgba($color1, 0.2));
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+// @name Hero Content
+
+.heroContent
+{
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: 0 16px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+// @name Hero Title
+
+.heroTitle
+{
+  color: #fff;
+  font-size: 60px;
+  margin: 0;
+  margin-bottom: 32px;
+  text-transform: uppercase;
+}
+
+
+// @name Hero Subtitle
+
+.heroSubtitle
+{
+  color: #fff;
+  font-size: 32px;
+}

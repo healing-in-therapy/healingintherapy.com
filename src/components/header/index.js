@@ -1,6 +1,7 @@
 import { Link } from 'gatsby';
 import { string } from 'prop-types';
-import React from 'react';
+import classNames from 'classnames';
+import React, { useEffect, useRef } from 'react';
 
 import styles from './style/header.module.scss';
 
@@ -11,6 +12,9 @@ const defaultProps = {
 const propTypes = {
   siteTitle: string,
 };
+
+let lastKnownScrollPosition = 0;
+let ticking = false;
 
 function Header(props) {
   const { siteTitle } = props;
@@ -38,8 +42,47 @@ function Header(props) {
     to: '/contact',
   }];
 
+  const header = useRef(null);
+
+  function onScroll(event) {
+    lastKnownScrollPosition = global.window.scrollY;
+
+    if (ticking) {
+      return;
+    }
+
+    global.window.requestAnimationFrame(() => {
+      if (global.window.location.pathname === '/') {
+        if (lastKnownScrollPosition > 60) {
+          header.current.classList.remove(styles.headerTransparent);
+        } else {
+          header.current.classList.add(styles.headerTransparent);
+        }
+      }
+
+      ticking = false;
+    });
+
+    ticking = true;
+  }
+
+  useEffect(() => {
+    global.window.addEventListener('scroll', onScroll);
+
+    return () => {
+      global.window.removeEventListener('scroll', onScroll);
+    };
+  });
+
   return (
-    <header className={styles.header}>
+    <header
+      className={classNames(
+        styles.header, {
+          [styles.headerTransparent]: global.window.location.pathname === '/',
+        },
+      )}
+      ref={header}
+    >
       <nav>
         <ul className={styles.navList}>
           {items.map(({ name, to }) => (

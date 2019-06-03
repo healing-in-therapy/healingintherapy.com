@@ -1,13 +1,12 @@
 import { Link } from 'gatsby';
 import React from 'react';
 
-import { Layout } from 'components';
+import { Hero, Layout } from 'components';
 
 function IndexPage() {
   return (
     <Layout title="Journey to Healing">
-      <h1>Journey to Healing</h1>
-      <p>Find restoration, a new life.</p>
+      <Hero />
 
       <h2>Services</h2>
 
