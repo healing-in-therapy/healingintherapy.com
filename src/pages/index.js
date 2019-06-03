@@ -5,7 +5,10 @@ import { Hero, Layout } from 'components';
 
 function IndexPage() {
   return (
-    <Layout title="Journey to Healing">
+    <Layout
+      title="Journey to Healing"
+      transparent
+    >
       <Hero />
 
       <h2>Services</h2>

@@ -1,5 +1,5 @@
 import { Link } from 'gatsby';
-import { string } from 'prop-types';
+import { bool, string } from 'prop-types';
 import classNames from 'classnames';
 import React, { useEffect, useRef } from 'react';
 
@@ -7,17 +7,22 @@ import styles from './style/header.module.scss';
 
 const defaultProps = {
   siteTitle: '',
+  transparent: false,
 };
 
 const propTypes = {
   siteTitle: string,
+  transparent: bool,
 };
 
 let lastKnownScrollPosition = 0;
 let ticking = false;
 
 function Header(props) {
-  const { siteTitle } = props;
+  const {
+    siteTitle,
+    transparent
+  } = props;
 
   const items = [{
     name: siteTitle,
@@ -78,7 +83,7 @@ function Header(props) {
     <header
       className={classNames(
         styles.header, {
-          [styles.headerTransparent]: global.window.location.pathname === '/',
+          [styles.headerTransparent]: transparent,
         },
       )}
       ref={header}
