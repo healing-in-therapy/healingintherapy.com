@@ -7,12 +7,12 @@ function AboutPage() {
     <Layout title="About">
       <h1>About</h1>
 
-      <Row>
-        <Column>
-          <Section
-            subtitle="Kayla Mach"
-            title="My Story"
-          >
+      <Section>
+        <Row>
+          <Column>
+            <h2>My Story</h2>
+            <div>Kayla Mach</div>
+
             <p>
               Hi, my name is Kayla Mach (LMFT 93339). I am a Licensed Marriage and Family Therapist and associated with the <a href="http://www.camft.org/IAS/COS/Default.aspx" rel="noopener noreferrer" target="_blank">California Association of Marriage &amp; Family Therapists</a>. I graduated from Antioch University with a Masters Degree in Clinical Psychology and a Bachelor’s Degree in University of California, Santa Barbara.
             </p>
@@ -24,31 +24,29 @@ function AboutPage() {
             <p>
               My private practice office is located in Santa Ana, California but I also conduct my sessions in the field or at my client’s home depending on their needs, comfort and convenience. Based on my experiences working in the non-traditional therapeutic environment such as in the field or at my client’s home, I find that my clients feel less stigma, more comfortable and as a result, more at ease to open up and more willing to actively work on their presenting problems.
             </p>
-          </Section>
-        </Column>
+          </Column>
 
-        <Column width={300}>
-          <Image filename="photo.jpg" />
-        </Column>
-      </Row>
+          <Column width={300}>
+            <Image filename="photo.jpg" />
+          </Column>
+        </Row>
+      </Section>
 
-      <Row>
-        <Column width="50%">
-          <Section
-            subtitle="Philosphy"
-            title="Practice"
-          >
+      <Section>
+        <Row>
+          <Column width="50%">
+            <h2>Practice</h2>
+            <div>Philosphy</div>
+
             <p>
               My goal is not only to talk, but for my clients to actively practice what we talk about in session. My field services, if requested by clients, is to walk alongside them in their environment to work on coping skills publicly in the real world. I specialize in working with the severe and persistent mental illness population, as well as with higher functioning, working professionals who struggle with various individual issues and/or marital problems.
             </p>
-          </Section>
-        </Column>
+          </Column>
 
-        <Column width="50%">
-          <Section
-            subtitle="Experience"
-            title="Education &amp; Work"
-          >
+          <Column width="50%">
+            <h2>Education &amp; Work</h2>
+            <div>Experience</div>
+
             <ul>
               <li>
                 M.A Clinical Psychology, Antioch University.
@@ -66,9 +64,9 @@ function AboutPage() {
                 Motivational Interviewing.
               </li>
             </ul>
-          </Section>
-        </Column>
-      </Row>
+          </Column>
+        </Row>
+      </Section>
     </Layout>
   );
 }

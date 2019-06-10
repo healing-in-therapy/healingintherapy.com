@@ -1,32 +1,13 @@
+@import 'ui';
+
 // @name Section
 
 .section
 {
+  padding: 16px;
 
-}
-
-// @name Section Title
-
-.sectionTitle
-{
-  color: #5c9ead;
-  font-size: 16px;
-  margin: 0;
-  margin-bottom: 4px;
-  text-transform: uppercase;
-}
-
-// @name Section Subtitle
-
-.sectionSubtitle
-{
-  font-size: 32px;
-  text-transform: lowercase;
-}
-
-// @name Section Content
-
-.sectionContent
-{
-  margin: 16px 0;
+  @include breakpoint(medium) {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
 }
