@@ -1,0 +1,57 @@
+@import 'ui';
+
+// @name Footer
+
+.footer
+{
+  margin-top: 64px;
+  padding: 32px 16px;
+  text-align: center;
+}
+
+// @name Footer Section
+
+.footerSection
+{
+  margin-bottom: 16px;
+}
+
+// @name Footer Header
+
+.footerHeader
+{
+  @include font-style(heading-200);
+
+  margin: 0 0 4px;
+}
+
+// @name Footer List
+
+.footerList
+{
+  list-style: none;
+  margin: 0 -4px;
+  padding: 0;
+}
+
+// @name Footer List Item
+
+.footerListItem
+{
+  display: inline-block;
+  padding: 0 4px;
+}
+
+// @name Footer Link
+
+.footerLink
+{
+  color: $color-text;
+  padding: 4px;
+  text-decoration: none;
+
+  &:hover
+  {
+    text-decoration: underline;
+  }
+}
