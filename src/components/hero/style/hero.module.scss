@@ -5,14 +5,18 @@
 .hero
 {
   margin-top: -60px;
-  padding-top: 56.25%;
+  padding-top: 3/4 * 100%;
+
+  @include breakpoint(medium) {
+    padding-top: 9/16 * 100%;
+  }
 }
 
 // @name Hero Content Container
 
 .heroContentContainer
 {
-  background-image: linear-gradient(rgba($color1, 0.7), rgba($color1, 0.2));
+  background-image: linear-gradient(rgba($color-secondary, 0.7), rgba($color-secondary, 0.2));
   height: 100%;
   position: absolute;
   top: 0;
@@ -23,10 +27,9 @@
 
 .heroContent
 {
-  margin: 0 auto;
-  max-width: 1440px;
   padding: 0 16px;
   position: relative;
+  text-align: center;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -35,11 +38,29 @@
 
 .heroTitle
 {
-  color: #fff;
-  font-size: 60px;
+  @include font-style(heading-500);
+
   margin: 0;
-  margin-bottom: 32px;
+  margin-bottom: 4px;
   text-transform: uppercase;
+
+  @include breakpoint(medium) {
+    @include font-style(heading-600);
+
+    margin-bottom: 8px;
+  }
+
+  @include breakpoint(large) {
+    @include font-style(special-200);
+
+    margin-bottom: 16px;
+  }
+
+  @include breakpoint(xxlarge) {
+    @include font-style(special-300);
+
+    margin-bottom: 32px;
+  }
 }
 
 
@@ -47,6 +68,17 @@
 
 .heroSubtitle
 {
-  color: #fff;
-  font-size: 32px;
+  @include font-style(heading-300);
+
+  @include breakpoint(medium) {
+    @include font-style(heading-400);
+  }
+
+  @include breakpoint(large) {
+    @include font-style(special-100);
+  }
+
+  @include breakpoint(xxlarge) {
+    @include font-style(special-200);
+  }
 }
