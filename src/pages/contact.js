@@ -15,6 +15,7 @@ function ContactPage() {
 
   const email = useRef(null);
   const form = useRef(null);
+  const formName = useRef(null);
   const message = useRef(null);
   const name = useRef(null);
   const phone = useRef(null);
@@ -32,7 +33,7 @@ function ContactPage() {
       message: message.current.value,
       name: name.current.value,
       phone: phone.current.value,
-      'form-name': form.current.name,
+      'form-name': formName.current.value,
     };
 
     const body = Object.keys(data)
@@ -68,7 +69,12 @@ function ContactPage() {
               onSubmit={onSubmit}
               ref={form}
             >
-              <input type="hidden" name="form-name" value="contact" />
+              <input
+                name="form-name"
+                ref={formName}
+                type="hidden"
+                value="contact"
+              />
 
               <div className={styles.honeypot}>
                 <input
