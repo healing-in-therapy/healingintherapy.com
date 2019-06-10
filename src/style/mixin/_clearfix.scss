@@ -1,0 +1,23 @@
+// @name Clearfix Mixin
+// Applies the micro clearfix hack popularized by Nicolas Gallagher. Include this mixin on a container if
+// its children are all floated, to give the container a proper height.
+//
+// @see {@link http://nicolasgallagher.com/micro-clearfix-hack/} Micro Clearfix Hack
+// @see {@link http://danisadesigner.com/blog/flexbox-clear-fix-pseudo-elements/} Flexbox fix
+
+@mixin clearfix
+{
+  &::before,
+  &::after,
+  {
+    content: ' ';
+    display: table;
+    flex-basis: 0;
+    order: 1;
+  }
+
+  &::after,
+  {
+    clear: both;
+  }
+}

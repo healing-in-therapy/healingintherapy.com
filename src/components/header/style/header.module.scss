@@ -4,38 +4,113 @@
 
 .header
 {
-  background-color: $color1;
+  background-color: $color-secondary;
+  height: 55px;
   position: fixed;
   top: 0;
-  transition: background-color 0.8s ease;
+  transition: background-color 0.3s ease;
   width: 100%;
   z-index: 100;
+
+  // Initial state to blend in with hero
+
+  &.headerTransparent
+  {
+    background-color: transparent;
+  }
+
+  // If menu is open, force solid background, but only on mobile portrait.
+
+  &.headerOpen
+  {
+    background-color: $color-secondary;
+    border-bottom: 1px solid $color-primary;
+    transition: none;
+
+    // If rotated to mobile landscape, mobile menu will disappear. Need to fake non-mobile state.
+
+    @include breakpoint(medium) {
+      background-color: transparent;
+      border-bottom: transparent;
+    }
+  }
+
+  // If menu is still open and currently viewing mobile landscape, need to fake non-mobile state.
+
+  &.headerOpen:not(.headerTransparent)
+  {
+    background-color: $color-secondary;
+  }
 }
 
-.headerTransparent
+// @name Navbar
+
+.navbar
 {
-  background-color: transparent;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+// @name Navbar Menu
+
+.navbarMenu
+{
+  @include font-style(body-200);
+
+  background-color: $color-primary;
+  border-radius: 2px;
+  border: 0;
+  box-shadow: 0 0 2px 0 rgba($color-black, 0.2);
+  color: $color-text;
+  cursor: pointer;
+
+  @include breakpoint(medium) {
+    @include font-style(body-300);
+
+    display: none;
+  }
+
+  @include breakpoint(large) {
+    @include font-style(body-400);
+  }
+
+  @include breakpoint(xxlarge) {
+    @include font-style(body-500);
+  }
+}
+
+// @name NavLink
+
+.navLink
+{
+
 }
 
 // @name Nav List
 
 .navList
 {
-  display: flex;
+  display: none;
   list-style: none;
   margin: 0;
-  padding: 16px;
+  padding: 0;
+
+  @include breakpoint(medium) {
+    display: block;
+  }
 }
 
 // @name Nav List Item
 
 .navListItem
 {
+  display: inline-block;
   padding: 0 8px;
 
   &:first-child
   {
-    flex: 1;
     padding-left: 0;
   }
 
@@ -49,7 +124,59 @@
 
 .navListLink
 {
-  color: #fff;
+  @include font-style(body-200);
+
+  color: $color-text;
+  display: block;
   text-decoration: none;
-  font-size: 20px;
+
+  &:hover
+  {
+    color: $color-primary;
+  }
+
+  @include breakpoint(medium) {
+    @include font-style(body-300);
+  }
+
+  @include breakpoint(large) {
+    @include font-style(body-400);
+  }
+
+  @include breakpoint(xxlarge) {
+    @include font-style(body-500);
+  }
+}
+
+// @name Nav List Mobile
+
+.navListMobile
+{
+  background-color: $color-secondary;
+  box-sizing: border-box;
+  display: none;
+  left: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding: 16px;
+  position: absolute;
+  top: 56px;
+  width: 100%;
+}
+
+.navListMobileIsOpen
+{
+  display: block;
+
+  @include breakpoint(medium) {
+    display: none;
+  }
+}
+
+// @name Nav List Mobile Item
+
+.navListMobileItem
+{
+  padding: 4px 0;
 }

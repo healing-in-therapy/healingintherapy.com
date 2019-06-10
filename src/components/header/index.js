@@ -1,7 +1,7 @@
 import { Link } from 'gatsby';
 import { bool, string } from 'prop-types';
 import classNames from 'classnames';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import styles from './style/header.module.scss';
 
@@ -19,15 +19,32 @@ let lastKnownScrollPosition = 0;
 let ticking = false;
 
 function Header(props) {
+  function onScroll(event) {
+    lastKnownScrollPosition = global.window.scrollY;
+
+    if (ticking) {
+      return;
+    }
+
+    global.window.requestAnimationFrame(() => {
+      if (lastKnownScrollPosition > 60) {
+        setTransparent(false);
+      } else {
+        setTransparent(true);
+      }
+
+      ticking = false;
+    });
+
+    ticking = true;
+  }
+
   const {
     siteTitle,
-    transparent
+    transparent: initialTransparent,
   } = props;
 
   const items = [{
-    name: siteTitle,
-    to: '/',
-  }, {
     name: 'Individuals',
     to: '/individuals',
   }, {
@@ -47,31 +64,14 @@ function Header(props) {
     to: '/contact',
   }];
 
-  const header = useRef(null);
-
-  function onScroll(event) {
-    lastKnownScrollPosition = global.window.scrollY;
-
-    if (ticking) {
-      return;
-    }
-
-    global.window.requestAnimationFrame(() => {
-      if (global.window.location.pathname === '/') {
-        if (lastKnownScrollPosition > 60) {
-          header.current.classList.remove(styles.headerTransparent);
-        } else {
-          header.current.classList.add(styles.headerTransparent);
-        }
-      }
-
-      ticking = false;
-    });
-
-    ticking = true;
-  }
+  const [isOpen, setIsOpen] = useState(false);
+  const [transparent, setTransparent] = useState(initialTransparent);
 
   useEffect(() => {
+    if (!initialTransparent) {
+      return () => {};
+    }
+
     global.window.addEventListener('scroll', onScroll);
 
     return () => {
@@ -81,17 +81,50 @@ function Header(props) {
 
   return (
     <header
-      className={classNames(
-        styles.header, {
-          [styles.headerTransparent]: transparent,
-        },
-      )}
-      ref={header}
+      className={classNames({
+        [styles.header]: true,
+        [styles.headerOpen]: isOpen,
+        [styles.headerTransparent]: transparent,
+      })}
     >
-      <nav>
-        <ul className={styles.navList}>
+      <nav className={styles.navbar}>
+        <Link
+          className={classNames(
+            styles.navLink,
+            styles.navListLink
+          )}
+          to="/"
+        >
+          {siteTitle}
+        </Link>
+
+        <button
+          className={styles.navbarMenu}
+          onClick={() => setIsOpen((isOpen) => !isOpen)}
+        >
+          Menu
+        </button>
+
+        <ul
+          className={styles.navList}
+        >
           {items.map(({ name, to }) => (
             <li className={styles.navListItem} key={name}>
+              <Link className={styles.navListLink} to={to}>{name}</Link>
+            </li>
+          ))}
+        </ul>
+
+        <ul
+          className={classNames(
+            styles.navListMobile,
+            {
+              [styles.navListMobileIsOpen]: isOpen,
+            }
+          )}
+        >
+          {items.map(({ name, to }) => (
+            <li className={styles.navListMobileItem} key={name}>
               <Link className={styles.navListLink} to={to}>{name}</Link>
             </li>
           ))}
