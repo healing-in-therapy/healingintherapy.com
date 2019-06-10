@@ -1,6 +1,8 @@
 import { Link, useStaticQuery } from 'gatsby';
 import React from 'react';
 
+import styles from './style/footer.module.scss';
+
 const items = [{
   name: 'Home',
   to: '/',
@@ -46,19 +48,25 @@ function Footer() {
   } = data.site.siteMetadata;
 
   return (
-    <footer>
-      <div>
-        <ul>
+    <footer className={styles.footer}>
+      <div className={styles.footerSection}>
+        <ul className={styles.footerList}>
           {items.map(({ name, to }) => (
-            <li key={name}>
-              <Link to={to}>{name}</Link>
+            <li
+              className={styles.footerListItem}
+              key={name}
+            >
+              <Link
+                className={styles.footerLink}
+                to={to}
+              >{name}</Link>
             </li>
           ))}
         </ul>
       </div>
 
-      <div>
-        <h3>Follow</h3>
+      <div className={styles.footerSection}>
+        <h3 className={styles.footerHeader}>Follow</h3>
 
         {(() => {
           if (social.length === 0) {
@@ -66,10 +74,18 @@ function Footer() {
           }
 
           return (
-            <ul>
+            <ul className={styles.footerList}>
               {social.map(({ id, name, url }) => (
-                <li key={id}>
-                  <a href={url} rel="noopener noreferrer" target="_blank">{name}</a>
+                <li
+                  className={styles.footerListItem}
+                  key={id}
+                >
+                  <a
+                    className={styles.footerLink}
+                    href={url}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >{name}</a>
                 </li>
               ))}
             </ul>
