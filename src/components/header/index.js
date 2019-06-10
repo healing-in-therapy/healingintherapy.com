@@ -91,7 +91,7 @@ function Header(props) {
         <Link
           className={classNames(
             styles.navLink,
-            styles.navListLink
+            styles.navLink
           )}
           to="/"
         >
@@ -110,7 +110,7 @@ function Header(props) {
         >
           {items.map(({ name, to }) => (
             <li className={styles.navListItem} key={name}>
-              <Link className={styles.navListLink} to={to}>{name}</Link>
+              <Link className={styles.navLink} to={to}>{name}</Link>
             </li>
           ))}
         </ul>
@@ -125,7 +125,7 @@ function Header(props) {
         >
           {items.map(({ name, to }) => (
             <li className={styles.navListMobileItem} key={name}>
-              <Link className={styles.navListLink} to={to}>{name}</Link>
+              <Link className={styles.navLink} to={to}>{name}</Link>
             </li>
           ))}
         </ul>
