@@ -1,0 +1,6 @@
+@import 'ui';
+
+.honeypot
+{
+  @include element-invisible; 
+}
