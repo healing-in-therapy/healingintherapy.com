@@ -8,15 +8,9 @@ const propTypes = {
 };
 
 function Section(props) {
-  const {
-    children,
-  } = props;
+  const { children } = props;
 
-  return (
-    <div className={styles.section}>
-      {children}
-    </div>
-  );
+  return <div className={styles.section}>{children}</div>;
 }
 
 Section.propTypes = propTypes;

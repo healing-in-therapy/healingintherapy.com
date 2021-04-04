@@ -10,8 +10,7 @@ $breakpoints: (
 
 $breakpoint-classes: map-keys($breakpoints) !default;
 
-@function breakpoint($bp)
-{
+@function breakpoint($bp) {
   @if map-has-key($breakpoints, $bp) == false {
     @warn 'breakpoint(): "#{$bp}" is not defined in your $breakpoints setting.';
   }
@@ -27,8 +26,7 @@ $breakpoint-classes: map-keys($breakpoints) !default;
  * @param {(Keyword|number)} $value - Breakpoint name, or px, rem, or em value to process.
  * @output Outputs the content wrapped in a media query.
  */
-@mixin breakpoint($value)
-{
+@mixin breakpoint($value) {
   @media screen and #{breakpoint($value)} {
     @content;
   }

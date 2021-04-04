@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Layout, Seo } from 'components';
 
 function NotFoundPage() {
-  return(
+  return (
     <Layout>
       <Seo title="404: Not found" />
 

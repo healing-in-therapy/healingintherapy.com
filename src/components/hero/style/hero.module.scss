@@ -2,8 +2,7 @@
 
 // @name Hero
 
-.hero
-{
+.hero {
   margin-top: -60px;
   padding-top: 3/4 * 100%;
 
@@ -14,9 +13,8 @@
 
 // @name Hero Content Container
 
-.heroContentContainer
-{
-  background-image: linear-gradient(rgba($color-secondary, 0.7), rgba($color-secondary, 0.2));
+.heroContentContainer {
+  background-image: linear-gradient(rgba(#333, 0.5), transparent);
   height: 100%;
   position: absolute;
   top: 0;
@@ -25,8 +23,7 @@
 
 // @name Hero Content
 
-.heroContent
-{
+.heroContent {
   padding: 0 16px;
   position: relative;
   text-align: center;
@@ -36,13 +33,13 @@
 
 // @name Hero Title
 
-.heroTitle
-{
+.heroTitle {
   @include font-style(heading-500);
 
+  color: #fff;
   margin: 0;
   margin-bottom: 4px;
-  text-transform: uppercase;
+  text-shadow: 0 0 5px #000;
 
   @include breakpoint(medium) {
     @include font-style(heading-600);
@@ -53,22 +50,23 @@
   @include breakpoint(large) {
     @include font-style(special-200);
 
-    margin-bottom: 16px;
+    margin-bottom: 8px;
   }
 
   @include breakpoint(xxlarge) {
     @include font-style(special-300);
 
-    margin-bottom: 32px;
+    margin-bottom: 16px;
   }
 }
 
-
 // @name Hero Subtitle
 
-.heroSubtitle
-{
+.heroSubtitle {
   @include font-style(heading-300);
+
+  color: #fff;
+  text-shadow: 0 0 5px #000;
 
   @include breakpoint(medium) {
     @include font-style(heading-400);
@@ -79,6 +77,6 @@
   }
 
   @include breakpoint(xxlarge) {
-    @include font-style(special-200);
+    @include font-style(special-100);
   }
 }

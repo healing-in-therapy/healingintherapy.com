@@ -24,12 +24,7 @@ const propTypes = {
 };
 
 function Seo(props) {
-  const {
-    description,
-    lang,
-    meta,
-    title,
-  } = props;
+  const { description, lang, meta, title } = props;
 
   const { site } = useStaticQuery(
     graphql`

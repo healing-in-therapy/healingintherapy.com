@@ -8,17 +8,11 @@ const defaultProps = {
 };
 
 const propTypes = {
-  width: oneOfType([
-    number,
-    string,
-  ]),
+  width: oneOfType([number, string]),
 };
 
 function Column(props) {
-  const {
-    children,
-    width,
-  } = props;
+  const { children, width } = props;
 
   return (
     <div

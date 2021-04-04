@@ -1,12 +1,6 @@
 import React, { useCallback, useRef, useState } from 'react';
 
-import {
-  Column,
-  Layout,
-  Map,
-  Row,
-  Section,
-} from 'components';
+import { Column, Layout, Map, Row, Section } from 'components';
 
 import * as styles from './style/contact.module.scss';
 
@@ -24,34 +18,37 @@ function ContactPage() {
     setInterest(event.target.value);
   }
 
-  const onSubmit = useCallback((event) => {
-    event.preventDefault();
+  const onSubmit = useCallback(
+    (event) => {
+      event.preventDefault();
 
-    const data = {
-      interest,
-      email: email.current.value,
-      message: message.current.value,
-      name: name.current.value,
-      phone: phone.current.value,
-      'form-name': formName.current.value,
-    };
+      const data = {
+        interest,
+        email: email.current.value,
+        message: message.current.value,
+        name: name.current.value,
+        phone: phone.current.value,
+        'form-name': formName.current.value,
+      };
 
-    const body = Object.keys(data)
-      .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
-      .join('&')
-    ;
+      const body = Object.keys(data)
+        .map(
+          (key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+        )
+        .join('&');
+      fetch('/', {
+        body,
+        method: 'POST',
 
-    fetch('/', {
-      body,
-      method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      });
 
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-    });
-
-    form.current.reset();
-  }, [interest])
+      form.current.reset();
+    },
+    [interest]
+  );
 
   return (
     <Layout title="Contact">
@@ -77,9 +74,7 @@ function ContactPage() {
               />
 
               <div className={styles.honeypot}>
-                <input
-                  name="bot-field"
-                />
+                <input name="bot-field" />
               </div>
 
               <div>
@@ -126,7 +121,6 @@ function ContactPage() {
 
               <div>
                 Interest
-
                 <ul>
                   <li>
                     <label>
@@ -138,7 +132,6 @@ function ContactPage() {
                         type="radio"
                         value="individuals"
                       />
-
                       Individuals
                     </label>
                   </li>
@@ -153,7 +146,6 @@ function ContactPage() {
                         type="radio"
                         value="couples"
                       />
-
                       Couples
                     </label>
                   </li>
@@ -168,7 +160,6 @@ function ContactPage() {
                         type="radio"
                         value="groups"
                       />
-
                       Groups
                     </label>
                   </li>
@@ -183,7 +174,6 @@ function ContactPage() {
                         type="radio"
                         value="rehabilitation"
                       />
-
                       Rehabilitation
                     </label>
                   </li>
@@ -198,7 +188,6 @@ function ContactPage() {
                         type="radio"
                         value="other"
                       />
-
                       Other
                     </label>
                   </li>
@@ -213,18 +202,16 @@ function ContactPage() {
 
           <Column width="50%">
             <Map />
-
             <h2>My Office</h2>
-
             <address>
-            1801 Park Court Pl. Unit E 105<br />
-            Santa Ana, CA 92701
+              1801 Park Court Pl. Unit E 105
+              <br />
+              Santa Ana, CA 92701
             </address>
-
             Phone: <a href="tel:1-949-422-6405">1-949-422-6405</a>
-
             <p>
-              There is plently of free parking available in front of the building.
+              There is plently of free parking available in front of the
+              building.
             </p>
           </Column>
         </Row>

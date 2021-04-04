@@ -2,8 +2,7 @@
 
 // @name Header
 
-.header
-{
+.header {
   background-color: $color-secondary;
   height: 55px;
   position: fixed;
@@ -14,15 +13,13 @@
 
   // Initial state to blend in with hero
 
-  &.headerTransparent
-  {
+  &.headerTransparent {
     background-color: transparent;
   }
 
   // If menu is open, force solid background, but only on mobile portrait.
 
-  &.headerOpen
-  {
+  &.headerOpen {
     background-color: $color-secondary;
     border-bottom: 1px solid $color-primary;
     transition: none;
@@ -37,16 +34,14 @@
 
   // If menu is still open and currently viewing mobile landscape, need to fake non-mobile state.
 
-  &.headerOpen:not(.headerTransparent)
-  {
+  &.headerOpen:not(.headerTransparent) {
     background-color: $color-secondary;
   }
 }
 
 // @name Navbar
 
-.navbar
-{
+.navbar {
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -55,8 +50,7 @@
 
 // @name Navbar Menu
 
-.navbarMenu
-{
+.navbarMenu {
   @include font-style(body-200);
 
   background-color: $color-primary;
@@ -81,17 +75,9 @@
   }
 }
 
-// @name NavLink
-
-.navLink
-{
-
-}
-
 // @name Nav List
 
-.navList
-{
+.navList {
   display: none;
   list-style: none;
   margin: 0;
@@ -104,34 +90,29 @@
 
 // @name Nav List Item
 
-.navListItem
-{
+.navListItem {
   display: inline-block;
   padding: 0 8px;
 
-  &:first-child
-  {
+  &:first-child {
     padding-left: 0;
   }
 
-  &:last-child
-  {
+  &:last-child {
     padding-right: 0;
   }
 }
 
 // @name Nav Link
 
-.navLink
-{
+.navLink {
   @include font-style(body-200);
 
-  color: $color-text;
+  color: #fff;
   display: block;
   text-decoration: none;
 
-  &:hover
-  {
+  &:hover {
     color: $color-primary;
   }
 
@@ -150,8 +131,7 @@
 
 // @name Nav List Mobile
 
-.navListMobile
-{
+.navListMobile {
   background-color: $color-secondary;
   box-sizing: border-box;
   display: none;
@@ -165,8 +145,7 @@
   width: 100%;
 }
 
-.navListMobileIsOpen
-{
+.navListMobileIsOpen {
   display: block;
 
   @include breakpoint(medium) {
@@ -176,7 +155,6 @@
 
 // @name Nav List Mobile Item
 
-.navListMobileItem
-{
+.navListMobileItem {
   padding: 4px 0;
 }

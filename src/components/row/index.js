@@ -10,11 +10,7 @@ const propTypes = {
 function Row(props) {
   const { children } = props;
 
-  return (
-    <div className={styles.row}>
-      {children}
-    </div>
-  );
+  return <div className={styles.row}>{children}</div>;
 }
 
 Row.propTypes = propTypes;

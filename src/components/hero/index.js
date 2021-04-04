@@ -11,10 +11,7 @@ function Hero() {
     query {
       hero: file(relativePath: { eq: "hero.jpg" }) {
         childImageSharp {
-          gatsbyImageData(
-            placeholder: BLURRED
-            quality: 90
-          )
+          gatsbyImageData(placeholder: BLURRED, quality: 90)
         }
       }
     }
@@ -25,14 +22,13 @@ function Hero() {
   const bgImage = convertToBgImage(image);
 
   return (
-    <BackgroundImage
-      className={styles.hero}
-      {...bgImage}
-    >
+    <BackgroundImage className={styles.hero} {...bgImage}>
       <div className={styles.heroContentContainer}>
         <div className={styles.heroContent}>
-          <h1 className={styles.heroTitle}>Journey to Healing</h1>
-          <div className={styles.heroSubtitle}>Find restoration, a new life.</div>
+          <h1 className={styles.heroTitle}>Find restoration, a new life.</h1>
+          <div className={styles.heroSubtitle}>
+            Affordable, private online therapy
+          </div>
         </div>
       </div>
     </BackgroundImage>

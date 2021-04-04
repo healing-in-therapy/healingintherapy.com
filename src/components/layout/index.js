@@ -18,11 +18,7 @@ const propTypes = {
 };
 
 function Layout(props) {
-  const {
-    children,
-    title,
-    transparent,
-  } = props;
+  const { children, title, transparent } = props;
 
   const data = useStaticQuery(graphql`
     query {

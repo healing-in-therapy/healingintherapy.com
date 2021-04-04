@@ -2,8 +2,7 @@
 
 // @name Footer
 
-.footer
-{
+.footer {
   margin-top: 64px;
   padding: 32px 16px;
   text-align: center;
@@ -11,15 +10,13 @@
 
 // @name Footer Section
 
-.footerSection
-{
+.footerSection {
   margin-bottom: 16px;
 }
 
 // @name Footer Header
 
-.footerHeader
-{
+.footerHeader {
   @include font-style(heading-200);
 
   margin: 0 0 4px;
@@ -27,8 +24,7 @@
 
 // @name Footer List
 
-.footerList
-{
+.footerList {
   list-style: none;
   margin: 0 -4px;
   padding: 0;
@@ -36,22 +32,19 @@
 
 // @name Footer List Item
 
-.footerListItem
-{
+.footerListItem {
   display: inline-block;
   padding: 0 4px;
 }
 
 // @name Footer Link
 
-.footerLink
-{
+.footerLink {
   color: $color-text;
   padding: 4px;
   text-decoration: none;
 
-  &:hover
-  {
+  &:hover {
     text-decoration: underline;
   }
 }

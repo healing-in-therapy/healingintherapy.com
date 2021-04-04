@@ -4,11 +4,10 @@
 // @see {@link http://snook.ca/archives/html_and_css/hiding-content-for-accessibility} Hiding Content for Accessibility
 // @see {@link http://hugogiraudel.com/2016/10/13/css-hide-and-seek/}
 
-@mixin element-invisible
-{
+@mixin element-invisible {
   border: 0;
   clip-path: inset(50%);
-  clip: rect(0,0,0,0);
+  clip: rect(0, 0, 0, 0);
   height: 1px;
   overflow: hidden;
   padding: 0;

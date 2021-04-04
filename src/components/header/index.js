@@ -39,30 +39,26 @@ function Header(props) {
     ticking = true;
   }
 
-  const {
-    siteTitle,
-    transparent: initialTransparent,
-  } = props;
+  const { siteTitle, transparent: initialTransparent } = props;
 
-  const items = [{
-    name: 'Individuals',
-    to: '/individuals',
-  }, {
-    name: 'Couples',
-    to: '/couples',
-  }, {
-    name: 'Groups',
-    to: '/groups',
-  }, {
-    name: 'Rehabilitation',
-    to: '/rehabilitation',
-  }, {
-    name: 'About',
-    to: '/about',
-  }, {
-    name: 'Contact',
-    to: '/contact',
-  }];
+  const items = [
+    {
+      name: 'Individuals',
+      to: '/individuals',
+    },
+    {
+      name: 'Couples',
+      to: '/couples',
+    },
+    {
+      name: 'About',
+      to: '/about',
+    },
+    {
+      name: 'Contact',
+      to: '/contact',
+    },
+  ];
 
   const [isOpen, setIsOpen] = useState(false);
   const [transparent, setTransparent] = useState(initialTransparent);
@@ -88,13 +84,7 @@ function Header(props) {
       })}
     >
       <nav className={styles.navbar}>
-        <Link
-          className={classNames(
-            styles.navLink,
-            styles.navLink
-          )}
-          to="/"
-        >
+        <Link className={classNames(styles.navLink, styles.navLink)} to="/">
           {siteTitle}
         </Link>
 
@@ -105,27 +95,26 @@ function Header(props) {
           Menu
         </button>
 
-        <ul
-          className={styles.navList}
-        >
+        <ul className={styles.navList}>
           {items.map(({ name, to }) => (
             <li className={styles.navListItem} key={name}>
-              <Link className={styles.navLink} to={to}>{name}</Link>
+              <Link className={styles.navLink} to={to}>
+                {name}
+              </Link>
             </li>
           ))}
         </ul>
 
         <ul
-          className={classNames(
-            styles.navListMobile,
-            {
-              [styles.navListMobileIsOpen]: isOpen,
-            }
-          )}
+          className={classNames(styles.navListMobile, {
+            [styles.navListMobileIsOpen]: isOpen,
+          })}
         >
           {items.map(({ name, to }) => (
             <li className={styles.navListMobileItem} key={name}>
-              <Link className={styles.navLink} to={to}>{name}</Link>
+              <Link className={styles.navLink} to={to}>
+                {name}
+              </Link>
             </li>
           ))}
         </ul>

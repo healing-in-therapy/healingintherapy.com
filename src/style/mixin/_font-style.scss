@@ -2,13 +2,13 @@
 
 $font-styles: (
   // Special
-
-  'special-300': (
-    // 'font-family': $font-family-normal,
-    'font-size': $font-size-76,
-    'font-weight': $font-weight-light,
-    'line-height': $line-height-127
-  ),
+  'special-300':
+    (
+      // 'font-family': $font-family-normal,
+      'font-size': $font-size-76,
+      'font-weight': $font-weight-light,
+      'line-height': $line-height-127
+    ),
   'special-200': (
     // 'font-family': $font-family-normal,
     'font-size': $font-size-54,
@@ -21,15 +21,14 @@ $font-styles: (
     'font-weight': $font-weight-light,
     'line-height': $line-height-133
   ),
-
   // Heading
-
-  'heading-600': (
-    // 'font-family': $font-family-normal,
-    'font-size': $font-size-36,
-    'font-weight': $font-weight-bold,
-    'line-height': $line-height-133
-  ),
+  'heading-600':
+    (
+      // 'font-family': $font-family-normal,
+      'font-size': $font-size-36,
+      'font-weight': $font-weight-bold,
+      'line-height': $line-height-133
+    ),
   'heading-500': (
     // 'font-family': $font-family-normal,
     'font-size': $font-size-28,
@@ -60,15 +59,14 @@ $font-styles: (
     'font-weight': $font-weight-bold,
     'line-height': $line-height-125
   ),
-
   // Body
-
-  'body-500': (
-    // 'font-family': $font-family-normal,
-    'font-size': $font-size-20,
-    'font-weight': $font-weight-regular,
-    'line-height': $line-height-120
-  ),
+  'body-500':
+    (
+      // 'font-family': $font-family-normal,
+      'font-size': $font-size-20,
+      'font-weight': $font-weight-regular,
+      'line-height': $line-height-120
+    ),
   'body-400': (
     // 'font-family': $font-family-normal,
     'font-size': $font-size-18,
@@ -101,8 +99,7 @@ $font-styles: (
  * @param {string} $font-style - Font style name.
  * @output {Map} $font-style
  */
-@function font-style($font-style)
-{
+@function font-style($font-style) {
   @if map-has-key($font-styles, $font-style) == false {
     @warn 'font-style(): "#{$font-style}" is not defined in your $font-styles setting.';
   }
@@ -116,8 +113,7 @@ $font-styles: (
  * @param {string} $font-style - Font style name.
  * @output Font styles.
  */
-@mixin font-style($font-style)
-{
+@mixin font-style($font-style) {
   $value: font-style($font-style);
 
   @if map-has-key($value, 'color') {

@@ -2,12 +2,6 @@
 
 // @name Section
 
-.section
-{
-  padding: 16px;
-
-  @include breakpoint(medium) {
-    padding-left: 32px;
-    padding-right: 32px;
-  }
+.section {
+  padding: 16px 0;
 }
