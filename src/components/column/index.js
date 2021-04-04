@@ -1,7 +1,7 @@
+import * as React from 'react';
 import { oneOfType, number, string } from 'prop-types';
-import React from 'react';
 
-import styles from './style/column.module.scss';
+import * as styles from './style/column.module.scss';
 
 const defaultProps = {
   width: null,

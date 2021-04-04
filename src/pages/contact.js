@@ -8,7 +8,7 @@ import {
   Section,
 } from 'components';
 
-import styles from './style/contact.module.scss';
+import * as styles from './style/contact.module.scss';
 
 function ContactPage() {
   const [interest, setInterest] = useState(null);

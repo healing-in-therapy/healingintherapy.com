@@ -12,7 +12,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import { string } from 'prop-types';
 import Img from 'gatsby-image';
-import React from 'react';
+import * as React from 'react';
 
 const propTypes = {
   filename: string.isRequired,

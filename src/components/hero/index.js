@@ -1,26 +1,33 @@
+import * as React from 'react';
+import { convertToBgImage } from 'gbimage-bridge';
+import { getImage } from 'gatsby-plugin-image';
 import { graphql, useStaticQuery } from 'gatsby';
 import BackgroundImage from 'gatsby-background-image';
-import React from 'react';
 
-import styles from './style/hero.module.scss';
+import * as styles from './style/hero.module.scss';
 
 function Hero() {
-  const data = useStaticQuery(graphql`
+  const { hero } = useStaticQuery(graphql`
     query {
       hero: file(relativePath: { eq: "hero.jpg" }) {
         childImageSharp {
-          fluid(quality: 90, maxWidth: 2448) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+          gatsbyImageData(
+            placeholder: BLURRED
+            quality: 90
+          )
         }
       }
     }
   `);
 
+  const image = getImage(hero);
+
+  const bgImage = convertToBgImage(image);
+
   return (
     <BackgroundImage
       className={styles.hero}
-      fluid={data.hero.childImageSharp.fluid}
+      {...bgImage}
     >
       <div className={styles.heroContentContainer}>
         <div className={styles.heroContent}>

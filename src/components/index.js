@@ -7,4 +7,4 @@ export { default as Layout } from './layout';
 export { default as Map } from './map';
 export { default as Row } from './row';
 export { default as Section } from './section';
-export { default as SEO } from './seo';
+export { default as Seo } from './seo';

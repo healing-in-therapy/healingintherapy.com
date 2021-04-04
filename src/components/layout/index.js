@@ -1,11 +1,11 @@
-import 'normalize.css';
+import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { bool, node, string } from 'prop-types';
-import React from 'react';
+import 'normalize.css';
 
-import { Footer, Header, SEO } from 'components';
+import { Footer, Header, Seo } from 'components';
 
-import styles from './style/layout.module.scss';
+import './style/layout.module.scss';
 
 const defaultProps = {
   transparent: false,
@@ -36,14 +36,14 @@ function Layout(props) {
 
   return (
     <div>
-      <SEO title={title} />
+      <Seo title={title} />
 
       <Header
         siteTitle={data.site.siteMetadata.title}
         transparent={transparent}
       />
 
-      <main className={styles.main}>{children}</main>
+      <main>{children}</main>
 
       <Footer />
     </div>

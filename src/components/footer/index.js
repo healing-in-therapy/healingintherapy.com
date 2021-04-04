@@ -1,7 +1,7 @@
-import { Link, useStaticQuery } from 'gatsby';
-import React from 'react';
+import * as React from 'react';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 
-import styles from './style/footer.module.scss';
+import * as styles from './style/footer.module.scss';
 
 const items = [{
   name: 'Home',

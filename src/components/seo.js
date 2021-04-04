@@ -8,7 +8,7 @@
 import { arrayOf, object, string } from 'prop-types';
 import { graphql, useStaticQuery } from 'gatsby';
 import Helmet from 'react-helmet';
-import React from 'react';
+import * as React from 'react';
 
 const defaultProps = {
   description: ``,
@@ -23,7 +23,7 @@ const propTypes = {
   title: string.isRequired,
 };
 
-function SEO(props) {
+function Seo(props) {
   const {
     description,
     lang,
@@ -92,7 +92,7 @@ function SEO(props) {
   );
 }
 
-SEO.defaultProps = defaultProps;
-SEO.propTypes = propTypes;
+Seo.defaultProps = defaultProps;
+Seo.propTypes = propTypes;
 
-export default SEO;
+export default Seo;

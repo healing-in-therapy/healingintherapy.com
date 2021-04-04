@@ -1,7 +1,7 @@
 import { node } from 'prop-types';
-import React from 'react';
+import * as React from 'react';
 
-import styles from './style/section.module.scss';
+import * as styles from './style/section.module.scss';
 
 const propTypes = {
   children: node.isRequired,

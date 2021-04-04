@@ -3,7 +3,7 @@ import { bool, string } from 'prop-types';
 import classNames from 'classnames';
 import React, { useEffect, useState } from 'react';
 
-import styles from './style/header.module.scss';
+import * as styles from './style/header.module.scss';
 
 const defaultProps = {
   siteTitle: '',

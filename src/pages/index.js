@@ -1,5 +1,5 @@
 import { Link } from 'gatsby';
-import React from 'react';
+import * as React from 'react';
 
 import { Hero, Layout, Section } from 'components';
 
