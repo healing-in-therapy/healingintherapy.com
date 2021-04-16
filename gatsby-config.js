@@ -72,6 +72,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-next-seo',
       options: {
+        // TODO: turn this off when this goes to production
         dangerouslySetAllPagesToNoIndex: true,
       },
     },
