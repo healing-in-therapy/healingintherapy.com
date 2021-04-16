@@ -1,18 +1,23 @@
 module.exports = {
   siteMetadata: {
     author: 'Kayla Mach',
-    description: 'Kayla Mach (MFC93339) is a Licensed Marriage and Family Therapist seving Orange County since 2010. Kayla is a graduate of Antioch University with a Master’s Degree in Clinical Psychology.',
+    description:
+      'Kayla Mach (MFC93339) is a Licensed Marriage and Family Therapist seving Orange County since 2010. Kayla is a graduate of Antioch University with a Master’s Degree in Clinical Psychology.',
+    siteUrl: 'https://healingintherapy.com/',
     title: 'Healing in Therapy',
 
-    social: [{
-      id: 'facebook',
-      name: 'Facebook',
-      url: 'https://www.facebook.com/KaylaMachLMFT',
-    }, {
-      id: 'linkedin',
-      name: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/kaylamach',
-    }],
+    social: [
+      {
+        id: 'facebook',
+        name: 'Facebook',
+        url: 'https://www.facebook.com/KaylaMachLMFT',
+      },
+      {
+        id: 'linkedin',
+        name: 'LinkedIn',
+        url: 'https://www.linkedin.com/in/kaylamach',
+      },
+    ],
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -30,9 +35,7 @@ module.exports = {
       resolve: 'gatsby-plugin-sass',
       options: {
         sassOptions: {
-          includePaths: [
-            `${__dirname}/src/style`,
-          ],
+          includePaths: [`${__dirname}/src/style`],
         },
       },
     },
@@ -48,8 +51,14 @@ module.exports = {
         icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        policy: [{ userAgent: '*', disallow: ['/'] }],
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',
   ],
-}
+};
