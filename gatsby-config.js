@@ -1,9 +1,21 @@
+const {
+  NODE_ENV,
+  URL: NETLIFY_SITE_URL = 'https://www.healingintherapy.com',
+  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+  CONTEXT: NETLIFY_ENV = NODE_ENV,
+} = process.env;
+
+const isProduction = NETLIFY_ENV === 'production';
+
+const siteUrl = isProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
+
 module.exports = {
   siteMetadata: {
+    siteUrl,
+
     author: 'Kayla Mach',
     description:
       'Kayla Mach (MFC93339) is a Licensed Marriage and Family Therapist seving Orange County since 2010. Kayla is a graduate of Antioch University with a Master’s Degree in Clinical Psychology.',
-    siteUrl: 'https://healingintherapy.com/',
     title: 'Healing in Therapy',
 
     social: [
