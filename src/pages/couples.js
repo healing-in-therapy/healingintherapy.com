@@ -1,11 +1,28 @@
 import * as React from 'react';
+import { convertToBgImage } from 'gbimage-bridge';
+import { getImage } from 'gatsby-plugin-image';
+import { graphql, useStaticQuery } from 'gatsby';
 
-import { Layout, Section } from 'components';
+import { Layout, PageTitle, Section } from 'components';
 
 function CouplesPage() {
+  const { hero } = useStaticQuery(graphql`
+    query {
+      hero: file(relativePath: { eq: "hero-3.jpg" }) {
+        childImageSharp {
+          gatsbyImageData(placeholder: BLURRED, quality: 80)
+        }
+      }
+    }
+  `);
+
+  const image = getImage(hero);
+
+  const bgImage = convertToBgImage(image);
+
   return (
     <Layout title="Couples">
-      <h1>Couples</h1>
+      <PageTitle bgImage={bgImage} bgPosition="center 40%" title="Couples" />
 
       <Section>
         <p>

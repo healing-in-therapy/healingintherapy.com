@@ -1,11 +1,29 @@
 import * as React from 'react';
+import { convertToBgImage } from 'gbimage-bridge';
+import { getImage } from 'gatsby-plugin-image';
+import { graphql, useStaticQuery } from 'gatsby';
+import { Link } from 'gatsby';
 
-import { Layout, Section } from 'components';
+import { Layout, PageTitle, Section } from 'components';
 
 function IndividualsPage() {
+  const { hero } = useStaticQuery(graphql`
+    query {
+      hero: file(relativePath: { eq: "hero-2.jpg" }) {
+        childImageSharp {
+          gatsbyImageData(placeholder: BLURRED, quality: 80)
+        }
+      }
+    }
+  `);
+
+  const image = getImage(hero);
+
+  const bgImage = convertToBgImage(image);
+
   return (
     <Layout title="Individuals">
-      <h1>Individuals</h1>
+      <PageTitle bgImage={bgImage} title="Individuals" />
 
       <Section>
         <p>
@@ -30,9 +48,9 @@ function IndividualsPage() {
           psychotherapeutic treatment modalities that mainly use are
           Psychodynamic, Cognitive-Behavioral and Narrative Therapy
         </p>
+      </Section>
 
-        <h2>Areas of Expertise</h2>
-
+      <Section title="Areas of Expertise">
         <ul>
           <li>General anxiety</li>
 
@@ -58,14 +76,11 @@ function IndividualsPage() {
         </ul>
 
         <p>
-          If you need help with any of these issues,{' '}
-          <a href="tel:1-949-422-6405">Call Now!</a>.
+          <Link to="/contact">Schedule a consultation</Link>
         </p>
       </Section>
 
-      <Section>
-        <h2>Psychotherapeutic Treatment Modalities</h2>
-
+      <Section title="Psychotherapeutic Treatment Modalities">
         <p>
           <b>Psychodynamic</b> is known as insight oriented therapy. The goal of
           Psychodynamic Therapy is to help you gain self-awareness and

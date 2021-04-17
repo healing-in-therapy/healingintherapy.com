@@ -39,7 +39,7 @@
   color: #fff;
   margin: 0;
   margin-bottom: 4px;
-  text-shadow: 0 0 5px #000;
+  text-shadow: 0 0 2px #000;
 
   @include breakpoint(medium) {
     @include font-style(heading-600);
