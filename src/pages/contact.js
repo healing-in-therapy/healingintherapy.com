@@ -1,24 +1,41 @@
-import React, { useCallback, useRef, useState } from 'react';
+import * as React from 'react';
+import { convertToBgImage } from 'gbimage-bridge';
+import { getImage } from 'gatsby-plugin-image';
+import { graphql, useStaticQuery } from 'gatsby';
 
-import { Column, Layout, Map, Row, Section } from 'components';
+import { Layout, PageTitle, Section } from 'components';
 
 import * as styles from './style/contact.module.scss';
 
 function ContactPage() {
-  const [interest, setInterest] = useState(null);
+  const { hero } = useStaticQuery(graphql`
+    query {
+      hero: file(relativePath: { eq: "hero-1.jpg" }) {
+        childImageSharp {
+          gatsbyImageData(placeholder: BLURRED, quality: 80)
+        }
+      }
+    }
+  `);
 
-  const email = useRef(null);
-  const form = useRef(null);
-  const formName = useRef(null);
-  const message = useRef(null);
-  const name = useRef(null);
-  const phone = useRef(null);
+  const image = getImage(hero);
+
+  const bgImage = convertToBgImage(image);
+
+  const [interest, setInterest] = React.useState(null);
+
+  const email = React.useRef(null);
+  const form = React.useRef(null);
+  const formName = React.useRef(null);
+  const message = React.useRef(null);
+  const name = React.useRef(null);
+  const phone = React.useRef(null);
 
   function onInterestChange(event) {
     setInterest(event.target.value);
   }
 
-  const onSubmit = useCallback(
+  const onSubmit = React.useCallback(
     (event) => {
       event.preventDefault();
 
@@ -36,6 +53,7 @@ function ContactPage() {
           (key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
         )
         .join('&');
+
       fetch('/', {
         body,
         method: 'POST',
@@ -52,169 +70,150 @@ function ContactPage() {
 
   return (
     <Layout title="Contact">
-      <h1>Contact</h1>
+      <PageTitle bgImage={bgImage} title="Contact" />
 
       <Section>
-        <Row>
-          <Column width="50%">
-            <form
-              data-netlify-honeypot="bot-field"
-              data-netlify="true"
-              id="contact_form"
-              method="post"
-              name="contact"
-              onSubmit={onSubmit}
-              ref={form}
-            >
-              <input
-                name="form-name"
-                ref={formName}
-                type="hidden"
-                value="contact"
-              />
+        <form
+          data-netlify-honeypot="bot-field"
+          data-netlify="true"
+          id="contact_form"
+          method="post"
+          name="contact"
+          onSubmit={onSubmit}
+          ref={form}
+        >
+          <input
+            name="form-name"
+            ref={formName}
+            type="hidden"
+            value="contact"
+          />
 
-              <div className={styles.honeypot}>
-                <input name="bot-field" />
-              </div>
+          <div className={styles.honeypot}>
+            <input name="bot-field" />
+          </div>
 
-              <div>
-                <label htmlFor="contact_form_name">Name</label>
-                <input
-                  id="contact_form_name"
-                  name="name"
-                  ref={name}
-                  required
-                  type="text"
-                />
-              </div>
+          <div>
+            <label htmlFor="contact_form_name">Name</label>
+            <input
+              id="contact_form_name"
+              name="name"
+              ref={name}
+              required
+              type="text"
+            />
+          </div>
 
-              <div>
-                <label htmlFor="contact_form_email">Email</label>
-                <input
-                  id="contact_form_email"
-                  name="email"
-                  ref={email}
-                  required
-                  type="email"
-                />
-              </div>
+          <div>
+            <label htmlFor="contact_form_email">Email</label>
+            <input
+              id="contact_form_email"
+              name="email"
+              ref={email}
+              required
+              type="email"
+            />
+          </div>
 
-              <div>
-                <label htmlFor="contact_form_phone">Phone (optional)</label>
-                <input
-                  id="contact_form_phone"
-                  name="phone"
-                  ref={phone}
-                  type="tel"
-                />
-              </div>
+          <div>
+            <label htmlFor="contact_form_phone">Phone (optional)</label>
+            <input
+              id="contact_form_phone"
+              name="phone"
+              ref={phone}
+              type="tel"
+            />
+          </div>
 
-              <div>
-                <label htmlFor="contact_form_message">Message</label>
-                <textarea
-                  id="contact_form_message"
-                  name="message"
-                  ref={message}
-                  required
-                />
-              </div>
+          <div>
+            <label htmlFor="contact_form_message">Message</label>
+            <textarea
+              id="contact_form_message"
+              name="message"
+              ref={message}
+              required
+            />
+          </div>
 
-              <div>
-                Interest
-                <ul>
-                  <li>
-                    <label>
-                      <input
-                        id="contact_form_interest"
-                        name="interest"
-                        onChange={onInterestChange}
-                        required
-                        type="radio"
-                        value="individuals"
-                      />
-                      Individuals
-                    </label>
-                  </li>
+          <div>
+            Interest
+            <ul>
+              <li>
+                <label>
+                  <input
+                    id="contact_form_interest"
+                    name="interest"
+                    onChange={onInterestChange}
+                    required
+                    type="radio"
+                    value="individuals"
+                  />
+                  Individuals
+                </label>
+              </li>
 
-                  <li>
-                    <label>
-                      <input
-                        id="contact_form_interest"
-                        name="interest"
-                        onChange={onInterestChange}
-                        required
-                        type="radio"
-                        value="couples"
-                      />
-                      Couples
-                    </label>
-                  </li>
+              <li>
+                <label>
+                  <input
+                    id="contact_form_interest"
+                    name="interest"
+                    onChange={onInterestChange}
+                    required
+                    type="radio"
+                    value="couples"
+                  />
+                  Couples
+                </label>
+              </li>
 
-                  <li>
-                    <label>
-                      <input
-                        id="contact_form_interest"
-                        name="interest"
-                        onChange={onInterestChange}
-                        required
-                        type="radio"
-                        value="groups"
-                      />
-                      Groups
-                    </label>
-                  </li>
+              <li>
+                <label>
+                  <input
+                    id="contact_form_interest"
+                    name="interest"
+                    onChange={onInterestChange}
+                    required
+                    type="radio"
+                    value="groups"
+                  />
+                  Groups
+                </label>
+              </li>
 
-                  <li>
-                    <label>
-                      <input
-                        id="contact_form_interest"
-                        name="interest"
-                        onChange={onInterestChange}
-                        required
-                        type="radio"
-                        value="rehabilitation"
-                      />
-                      Rehabilitation
-                    </label>
-                  </li>
+              <li>
+                <label>
+                  <input
+                    id="contact_form_interest"
+                    name="interest"
+                    onChange={onInterestChange}
+                    required
+                    type="radio"
+                    value="rehabilitation"
+                  />
+                  Rehabilitation
+                </label>
+              </li>
 
-                  <li>
-                    <label>
-                      <input
-                        id="contact_form_interest"
-                        name="interest"
-                        onChange={onInterestChange}
-                        required
-                        type="radio"
-                        value="other"
-                      />
-                      Other
-                    </label>
-                  </li>
-                </ul>
-              </div>
+              <li>
+                <label>
+                  <input
+                    id="contact_form_interest"
+                    name="interest"
+                    onChange={onInterestChange}
+                    required
+                    type="radio"
+                    value="other"
+                  />
+                  Other
+                </label>
+              </li>
+            </ul>
+          </div>
 
-              <div>
-                <button type="submit">Submit</button>
-              </div>
-            </form>
-          </Column>
-
-          <Column width="50%">
-            <Map />
-            <h2>My Office</h2>
-            <address>
-              1801 Park Court Pl. Unit E 105
-              <br />
-              Santa Ana, CA 92701
-            </address>
-            Phone: <a href="tel:1-949-422-6405">1-949-422-6405</a>
-            <p>
-              There is plently of free parking available in front of the
-              building.
-            </p>
-          </Column>
-        </Row>
+          <div>
+            <button type="submit">Submit</button>
+          </div>
+        </form>
       </Section>
     </Layout>
   );

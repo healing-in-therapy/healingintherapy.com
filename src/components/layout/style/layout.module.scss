@@ -2,5 +2,21 @@
 
 body {
   color: $color-text;
+  font-family: 'Noto Sans JP', 'Helvetica Neue', Roboto, Helvetica, Arial,
+    sans-serif !important;
   padding-top: 60px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+li {
+  font-size: 1rem;
+  line-height: 1.5rem;
 }

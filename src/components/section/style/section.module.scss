@@ -3,5 +3,8 @@
 // @name Section
 
 .section {
-  padding: 16px 0;
+  box-sizing: border-box;
+  margin: 3rem auto 0;
+  max-width: 720px;
+  padding: 0 16px;
 }

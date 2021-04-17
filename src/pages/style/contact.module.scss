@@ -1,5 +1,18 @@
 @import 'ui';
 
+.hero {
+  position: relative;
+
+  &::before {
+    content: '';
+    background: linear-gradient(rgba(yellow, 0.4), rgba(black, 0.8));
+    position: absolute;
+    opacity: 0.3;
+    inset: 0;
+    z-index: 1;
+  }
+}
+
 .honeypot {
   @include element-invisible;
 }
