@@ -17,10 +17,10 @@ function PageTitle(props) {
     <div className={styles.container}>
       <div className={styles.header}>
         <BackgroundImage
+          className={styles.backgroundImage}
           {...bgImage}
           style={{
             backgroundPosition: bgPosition,
-            height: 340,
           }}
         ></BackgroundImage>
       </div>

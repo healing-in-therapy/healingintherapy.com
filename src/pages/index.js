@@ -3,20 +3,26 @@ import { Link } from 'gatsby';
 
 import { Column, Hero, Layout, Row, Section } from 'components';
 
+import * as styles from './style/index.module.scss';
+
 function IndexPage() {
   return (
     <Layout title="Journey to Healing" transparent>
       <Hero />
 
-      <Section title="What type of therapy are you looking for?">
-        <ul>
-          <li>
-            <Link to="/individuals">Individuals</Link>
-          </li>
-          <li>
-            <Link to="/couples"> Couples</Link>
-          </li>
-        </ul>
+      <Section
+        title="What type of therapy are you looking for?"
+        style={{ textAlign: 'center' }}
+      >
+        <div className={styles.cta}>
+          <Link className={styles.link} to="/individuals">
+            Individuals
+          </Link>
+
+          <Link className={styles.link} to="/couples">
+            Couples
+          </Link>
+        </div>
       </Section>
 
       <Section title="Restoration">

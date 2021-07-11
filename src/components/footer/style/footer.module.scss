@@ -40,11 +40,6 @@
 // @name Footer Link
 
 .footerLink {
-  color: $color-text;
   padding: 4px;
   text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
 }

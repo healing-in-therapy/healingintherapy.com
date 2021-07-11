@@ -93,9 +93,12 @@ function ContactPage() {
             <input name="bot-field" />
           </div>
 
-          <div>
-            <label htmlFor="contact_form_name">Name</label>
+          <div className={styles.formRow}>
+            <label className={styles.label} htmlFor="contact_form_name">
+              Name*
+            </label>
             <input
+              className={styles.textField}
               id="contact_form_name"
               name="name"
               ref={name}
@@ -104,9 +107,12 @@ function ContactPage() {
             />
           </div>
 
-          <div>
-            <label htmlFor="contact_form_email">Email</label>
+          <div className={styles.formRow}>
+            <label className={styles.label} htmlFor="contact_form_email">
+              Email*
+            </label>
             <input
+              className={styles.textField}
               id="contact_form_email"
               name="email"
               ref={email}
@@ -115,9 +121,12 @@ function ContactPage() {
             />
           </div>
 
-          <div>
-            <label htmlFor="contact_form_phone">Phone (optional)</label>
+          <div className={styles.formRow}>
+            <label className={styles.label} htmlFor="contact_form_phone">
+              Phone (optional)
+            </label>
             <input
+              className={styles.textField}
               id="contact_form_phone"
               name="phone"
               ref={phone}
@@ -125,22 +134,14 @@ function ContactPage() {
             />
           </div>
 
-          <div>
-            <label htmlFor="contact_form_message">Message</label>
-            <textarea
-              id="contact_form_message"
-              name="message"
-              ref={message}
-              required
-            />
-          </div>
+          <div className={styles.formRow}>
+            <fieldset className={styles.fieldSet}>
+              <legend className={styles.legend}>Interest*</legend>
 
-          <div>
-            Interest
-            <ul>
-              <li>
+              <div className={styles.fieldSetItem}>
                 <label>
                   <input
+                    className={styles.radio}
                     id="contact_form_interest"
                     name="interest"
                     onChange={onInterestChange}
@@ -150,11 +151,12 @@ function ContactPage() {
                   />
                   Individuals
                 </label>
-              </li>
+              </div>
 
-              <li>
+              <div className={styles.fieldSetItem}>
                 <label>
                   <input
+                    className={styles.radio}
                     id="contact_form_interest"
                     name="interest"
                     onChange={onInterestChange}
@@ -164,39 +166,12 @@ function ContactPage() {
                   />
                   Couples
                 </label>
-              </li>
+              </div>
 
-              <li>
+              <div className={styles.fieldSetItem}>
                 <label>
                   <input
-                    id="contact_form_interest"
-                    name="interest"
-                    onChange={onInterestChange}
-                    required
-                    type="radio"
-                    value="groups"
-                  />
-                  Groups
-                </label>
-              </li>
-
-              <li>
-                <label>
-                  <input
-                    id="contact_form_interest"
-                    name="interest"
-                    onChange={onInterestChange}
-                    required
-                    type="radio"
-                    value="rehabilitation"
-                  />
-                  Rehabilitation
-                </label>
-              </li>
-
-              <li>
-                <label>
-                  <input
+                    className={styles.radio}
                     id="contact_form_interest"
                     name="interest"
                     onChange={onInterestChange}
@@ -206,12 +181,28 @@ function ContactPage() {
                   />
                   Other
                 </label>
-              </li>
-            </ul>
+              </div>
+            </fieldset>
+          </div>
+
+          <div className={styles.formRow}>
+            <label className={styles.label} htmlFor="contact_form_message">
+              Message*
+            </label>
+            <textarea
+              className={styles.textArea}
+              id="contact_form_message"
+              name="message"
+              ref={message}
+              required
+              rows="3"
+            />
           </div>
 
           <div>
-            <button type="submit">Submit</button>
+            <button className={styles.button} type="submit">
+              Submit
+            </button>
           </div>
         </form>
       </Section>

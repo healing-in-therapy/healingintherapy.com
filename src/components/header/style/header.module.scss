@@ -5,7 +5,7 @@
 .header {
   align-items: center;
   background: $color-white;
-  box-shadow: inset 0 -1px 1px -1px #666;
+  box-shadow: inset 0 -1px 1px -1px rgba(#000, 0.5);
   display: flex;
   height: 60px;
   position: fixed;
@@ -51,6 +51,42 @@
   flex: 1;
   justify-content: space-between;
   padding: 16px;
+}
+
+// @name logo
+
+.logoLink {
+  @include font-style(body-300);
+
+  align-items: center;
+  color: darken(#d8e2dc, 55%);
+  display: flex;
+  text-decoration: none !important;
+  text-decoration: none !important;
+  transition: color 0.1s ease-in;
+
+  &:hover,
+  &:focus {
+    color: darken(#d8e2dc, 60%);
+  }
+
+  &:active {
+    color: darken(#d8e2dc, 65%);
+  }
+
+  .headerTransparent & {
+    color: #eee;
+
+    &:hover,
+    &:focus {
+      color: $color-white;
+    }
+  }
+}
+
+.logo {
+  height: 32px;
+  margin-right: 8px;
 }
 
 // @name Navbar Menu
@@ -114,20 +150,26 @@
   @include font-style(body-300);
 
   border-bottom: 1px solid transparent;
-  color: #666;
+  color: darken(#d8e2dc, 55%);
   display: block;
   padding-bottom: 0.25rem;
-  text-decoration: none;
+  text-decoration: none !important;
   transition: color 0.1s ease-in;
 
-  &:hover {
-    color: $color-black;
+  &:hover,
+  &:focus {
+    color: darken(#d8e2dc, 60%);
+  }
+
+  &:active {
+    color: darken(#d8e2dc, 65%);
   }
 
   .headerTransparent & {
     color: #eee;
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: $color-white;
       border-color: $color-white;
     }
