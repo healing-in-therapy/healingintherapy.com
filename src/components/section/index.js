@@ -9,10 +9,10 @@ const propTypes = {
 };
 
 function Section(props) {
-  const { children, title } = props;
+  const { children, title, ...rest } = props;
 
   return (
-    <div className={styles.section}>
+    <div className={styles.section} {...rest}>
       {title && <h2>{title}</h2>}
 
       {children}

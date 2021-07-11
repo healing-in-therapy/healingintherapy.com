@@ -1,6 +1,7 @@
 @import 'ui';
 
 body {
+  background: #f1f1f2;
   color: $color-text;
   font-family: 'Noto Sans JP', 'Helvetica Neue', Roboto, Helvetica, Arial,
     sans-serif !important;
@@ -19,4 +20,19 @@ p {
 li {
   font-size: 1rem;
   line-height: 1.5rem;
+}
+
+a {
+  color: darken(#fec5bb, 55%);
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: darken(#fec5bb, 60%);
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: darken(#fec5bb, 65%);
+  }
 }
