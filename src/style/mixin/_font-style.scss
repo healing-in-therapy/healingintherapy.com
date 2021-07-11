@@ -4,92 +4,78 @@ $font-styles: (
   // Special
   'special-300':
     (
-      // 'font-family': $font-family-normal,
       'font-size': $font-size-76,
       'font-weight': $font-weight-light,
-      'line-height': $line-height-127
+      'line-height': $line-height-127,
     ),
   'special-200': (
-    // 'font-family': $font-family-normal,
     'font-size': $font-size-54,
     'font-weight': $font-weight-light,
-    'line-height': $line-height-119
+    'line-height': $line-height-119,
   ),
   'special-100': (
-    // 'font-family': $font-family-normal,
     'font-size': $font-size-36,
     'font-weight': $font-weight-light,
-    'line-height': $line-height-133
+    'line-height': $line-height-133,
   ),
   // Heading
   'heading-600':
     (
-      // 'font-family': $font-family-normal,
       'font-size': $font-size-36,
       'font-weight': $font-weight-bold,
-      'line-height': $line-height-133
+      'line-height': $line-height-133,
     ),
   'heading-500': (
-    // 'font-family': $font-family-normal,
     'font-size': $font-size-28,
     'font-weight': $font-weight-bold,
-    'line-height': $line-height-129
+    'line-height': $line-height-129,
   ),
   'heading-400': (
-    // 'font-family': $font-family-normal,
     'font-size': $font-size-24,
     'font-weight': $font-weight-bold,
-    'line-height': $line-height-133
+    'line-height': $line-height-133,
   ),
   'heading-300': (
-    // 'font-family': $font-family-normal,
     'font-size': $font-size-20,
     'font-weight': $font-weight-bold,
-    'line-height': $line-height-120
+    'line-height': $line-height-120,
   ),
   'heading-200': (
-    // 'font-family': $font-family-normal,
     'font-size': $font-size-18,
     'font-weight': $font-weight-bold,
-    'line-height': $line-height-133
+    'line-height': $line-height-133,
   ),
   'heading-100': (
-    // 'font-family': $font-family-normal,
     'font-size': $font-size-16,
     'font-weight': $font-weight-bold,
-    'line-height': $line-height-125
+    'line-height': $line-height-125,
   ),
   // Body
   'body-500':
     (
-      // 'font-family': $font-family-normal,
       'font-size': $font-size-20,
       'font-weight': $font-weight-regular,
-      'line-height': $line-height-120
+      'line-height': $line-height-120,
     ),
   'body-400': (
-    // 'font-family': $font-family-normal,
     'font-size': $font-size-18,
     'font-weight': $font-weight-regular,
-    'line-height': $line-height-133
+    'line-height': $line-height-133,
   ),
   'body-300': (
-    // 'font-family': $font-family-normal,
     'font-size': $font-size-16,
     'font-weight': $font-weight-regular,
-    'line-height': $line-height-150
+    'line-height': $line-height-150,
   ),
   'body-200': (
-    // 'font-family': $font-family-normal,
     'font-size': $font-size-14,
     'font-weight': $font-weight-regular,
-    'line-height': $line-height-143
+    'line-height': $line-height-143,
   ),
   'body-100': (
-    // 'font-family': $font-family-normal,
     'font-size': $font-size-12,
     'font-weight': $font-weight-regular,
-    'line-height': $line-height-133
+    'line-height': $line-height-133,
   )
 );
 

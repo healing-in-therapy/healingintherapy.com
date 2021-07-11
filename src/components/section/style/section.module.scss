@@ -7,4 +7,16 @@
   margin: 3rem auto 0;
   max-width: 960px;
   padding: 0 16px;
+
+  @include breakpoint(medium) {
+    padding: 0 32px;
+  }
+}
+
+.title {
+  @include font-style(heading-200);
+
+  @include breakpoint(medium) {
+    @include font-style(heading-400);
+  }
 }
