@@ -195,7 +195,7 @@ function ContactPage() {
               name="message"
               ref={message}
               required
-              rows="3"
+              rows="4"
             />
           </div>
 

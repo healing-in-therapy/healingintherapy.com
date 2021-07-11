@@ -37,20 +37,17 @@
   @include font-style(heading-500);
 
   color: #fff;
+  font-weight: 400;
   margin: 0;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   text-shadow: 0 0 2px #000;
 
   @include breakpoint(medium) {
     @include font-style(heading-600);
-
-    margin-bottom: 8px;
   }
 
   @include breakpoint(large) {
     @include font-style(special-200);
-
-    margin-bottom: 8px;
   }
 
   @include breakpoint(xxlarge) {
@@ -66,6 +63,7 @@
   @include font-style(heading-300);
 
   color: #fff;
+  font-weight: 400;
   text-shadow: 0 0 5px #000;
 
   @include breakpoint(medium) {

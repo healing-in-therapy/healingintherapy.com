@@ -13,7 +13,7 @@ function Section(props) {
 
   return (
     <div className={styles.section} {...rest}>
-      {title && <h2>{title}</h2>}
+      {title && <h2 className={styles.title}>{title}</h2>}
 
       {children}
     </div>

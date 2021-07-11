@@ -29,11 +29,16 @@
 .textField,
 .textArea {
   box-sizing: border-box;
-  border: 1px solid #444;
+  border: 1px solid #888;
   border-radius: 4px;
-  line-height: 32px;
+  line-height: 1.5;
+  min-height: 40px;
   padding: 0 8px;
   width: 100%;
+}
+
+.textArea {
+  resize: vertical;
 }
 
 .fieldSet {

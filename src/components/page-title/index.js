@@ -5,7 +5,6 @@ import BackgroundImage from 'gatsby-background-image';
 import * as styles from './page-title.module.scss';
 
 const propTypes = {
-  bgImage: {}.isRequired,
   bgPosition: string,
   title: node.isRequired,
 };

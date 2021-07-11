@@ -1,6 +1,8 @@
 import * as React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
 import { bool, node, string } from 'prop-types';
+import { graphql, useStaticQuery } from 'gatsby';
+import { SkipNavLink, SkipNavContent } from '@reach/skip-nav';
+import '@reach/skip-nav/styles.css'; //this will show/hide the link on focus
 import 'normalize.css';
 
 import { Footer, Header, Seo } from 'components';
@@ -34,10 +36,14 @@ function Layout(props) {
     <div>
       <Seo title={title} />
 
+      <SkipNavLink style={{ zIndex: 200 }} />
+
       <Header
         siteTitle={data.site.siteMetadata.title}
         transparent={transparent}
       />
+
+      <SkipNavContent />
 
       <main>{children}</main>
 
